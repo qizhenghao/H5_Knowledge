@@ -1,0 +1,208 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>小政的H5_1</title>
+<script>
+ // alert("Hello, world");
+ // alert("qi zhenghao");
+
+//  alert(`多行
+// 字符串
+// 测试`);
+// alert("多行\n字符串\n测试");
+
+// var name = '小明';
+// var age = 20;
+// var message = '你好, ' + name + ', 你今年' + age + '岁了!';
+// alert(message);
+
+// alert(`你好, ${name}, 你今年${age}岁了!`);
+
+// var s = 'Hello, world!';
+// s[0]; // 'H'
+// s[6]; // ' '
+// s[7]; // 'w'
+// s[12]; // '!'
+// s[13]; // undefined 超出范围的索引不会报错，但一律返回undefined
+// s[0] = 'X';
+// alert(s); // s仍然为'Test'
+// alert(s.toUpperCase());
+// alert(s.toLowerCase());
+// alert(s.indexOf('world'));
+// alert(s.substring(0, 5));
+
+// var arr = [1, 2, 3];
+// arr.length; // 3
+// arr.length = 6;
+// arr; // arr变为[1, 2, 3, undefined, undefined, undefined]
+// arr.length = 2;
+// arr; // arr变为[1, 2]
+// arr[1] = 99;
+// arr; // arr现在变为[1, 99, 3]
+// arr[5] = 'x';
+// arr; // arr变为[1, 2, 3, undefined, undefined, 'x']
+// arr.indexOf(1); // 元素1的索引为0
+// arr.indexOf(4); // 元素4没有找到，返回-1
+// var arr1 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+// arr1.slice(0, 3); // 从索引0开始，到索引3结束，但不包括索引3: ['A', 'B', 'C']
+// arr1.slice(3); // 从索引3开始到结束: ['D', 'E', 'F', 'G']
+
+// var height = parseFloat(prompt('请输入身高(m):'));
+// var weight = parseFloat(prompt('请输入体重(kg):'));
+// var vmi = weight / (height*height);
+// if(vmi <18.5) {
+// alert('过轻');
+// } else if (vmi >=18.5 && vmi <=25) {
+// alert('正常');
+// } else if (vmi >25 && vmi<=28) {
+// alert('过重');
+// } else if (vmi >28 && vmi <=32) {
+// alert('肥胖');
+// } else if (vmi > 32) {
+// alert('严重肥胖');
+// }
+
+// var o = {
+//     name: 'Jack',
+//     age: 20,
+//     city: 'Beijing'
+// };
+// for (var key in o) {
+//     if (o.hasOwnProperty(key)) {
+//         alert(key); // 'name', 'age', 'city'
+//     }
+// }
+
+// var arr = ['Bart', 'Lisa', 'Adam'];
+// for (var index in arr) {
+//     alert('Hello, ' + arr[index]);
+// }
+
+// var m = new Map(); // 空Map
+// m.set('Adam', 67); // 添加新的key-value
+// m.set('Bob', 59);
+// m.has('Adam'); // 是否存在key 'Adam': true
+// m.get('Adam'); // 67
+// m.delete('Adam'); // 删除key 'Adam'
+// m.get('Adam'); // undefined
+
+// 要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set
+// var s1 = new Set(); // 空Set
+// var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+// for (var v of s2) {
+// 	alert(v);
+// }
+// var s = new Set(['A', 'B', 'C']);
+// s.forEach(function (element, sameElement, set) {
+//     alert(element);
+// });
+// var a = ['A', 'B', 'C'];
+// a.forEach(function(element) { 
+// 	alert(element);
+// });
+
+
+/***********函数*************/
+// function abs(x) {
+// 	if (typeof x !== 'number') {
+//         throw 'Not a number';
+//     }
+//     if (x >= 0) {
+//         return x;
+//     } else {
+//         return -x;
+//     }
+// }
+
+// var abs1 = function(x) {
+// 	if (x >= 0) {
+// 		return x;
+// 	} else{ return -x};
+// };
+
+// alert(abs(-9));
+
+// function foo(x) {
+//     alert(x); // 10
+//     for (var i=0; i<arguments.length; i++) {
+//         alert(arguments[i]); // 10, 20, 30
+//     }
+// }
+// foo(10, 20, 30);
+
+// function sum(...rest) {
+//    var sum = 0;
+//    rest.forEach(function(element) {sum += element});
+// return sum;
+// }
+// var i, args = [];
+// for (i=1; i<=100; i++) {
+//     args.push(i);
+// }
+// if (sum() !== 0) {
+//     alert('测试失败: sum() = ' + sum());
+// } else if (sum(1) !== 1) {
+//     alert('测试失败: sum(1) = ' + sum(1));
+// } else if (sum(2, 3) !== 5) {
+//     alert('测试失败: sum(2, 3) = ' + sum(2, 3));
+// } else if (sum.apply(null, args) !== 5050) {
+//     alert('测试失败: sum(1, 2, 3, ..., 100) = ' + sum.apply(null, args));
+// } else {
+//     alert('测试通过!');
+// }
+
+// var xiaoming = {
+//     name: '小明',
+//     birth: 1990,
+//     age: function () {
+//         var y = new Date().getFullYear();
+//         return y - this.birth;
+//     }
+// };
+
+// alert(xiaoming.age); // function xiaoming.age()
+// window.alert(xiaoming.age()); // 今年调用是25,明年调用就变成26了
+
+// function add(x, y, f) { //高阶函数
+//     return f(x) + f(y);
+// }
+// alert(add(-5, 6, Math.abs)); // 11
+
+// function pow(x) {
+//     return x * x;
+// }
+
+// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// arr.map(pow); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+// function string2int(s) {
+// 	var arr = s.split();    
+// 	alert(arr.reduce(function (x, y){ return x*10 + y}));
+// 	alert(arr.map(function (x){return +x;}));
+// 	return arr.reduce(function (x, y){ return x*10 + y});
+// }
+// string2int('0');
+// string2int('12345')
+
+
+// function normalize(arr) {
+// 	return arr.map(
+// 		function (x){
+// 			var tail = x.substring(1).toLowerCase();
+// 			var head = x[0].toUpperCase();
+// 			return head + tail;
+// 		}
+// 	)
+// }
+// alert(normalize(['LISA', 'length', 'qZ']));
+
+var fn = x => x * x;
+alert(fn(3));
+
+
+
+</script>
+
+<body> Hello , world. </body>
+</head>
+</html>
