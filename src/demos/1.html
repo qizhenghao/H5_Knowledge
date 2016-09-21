@@ -210,6 +210,68 @@
 // alert(obj.getAge(2015)); // 25
 
 
+// function* next_id() {
+// var n = 1;
+// while(n < 100) {
+//    yield n++;
+// }
+// }
+// var
+//     x,
+//     pass = true,
+//     g = next_id();
+// for (x = 1; x < 100; x ++) {
+//     if (g.next().value !== x) {
+//         pass = false;
+//         alert('测试失败!');
+//         break;
+//     }
+// }
+// if (pass) {
+//     alert('测试通过!');
+// }
+
+// 123..toString(); // '123', 注意是两个点！
+// (123).toString(); // '123'
+
+// if (Date.now) {
+//     alert(Date.now()); // 老版本IE没有now()方法
+// } else {
+//     alert(new Date().getTime());
+// }
+// var today = new Date(2016, 1, 14, 5, 20, 13, 14);
+// if (today.getMonth() === 1 && today.getDate() === 14) {
+//     alert('2.14，亲爱的，我预定了晚餐，晚上6点在餐厅见！');
+// }
+
+
+var re = /^\w+\.?\w+@\w+\.(com|org)$/;
+// 测试:
+var
+    i,
+    success = true,
+    should_pass = ['someone@gmail.com', 'bill.gates@microsoft.com', 'tom@voyager.org', 'bob2015@163.com'],
+    should_fail = ['test#gmail.com', 'bill@microsoft', 'bill%gates@ms.com', '@voyager.org'];
+for (i = 0; i < should_pass.length; i++) {
+    if (!re.test(should_pass[i])) {
+        alert('测试失败: ' + should_pass[i]);
+        success = false;
+        break;
+    }
+}
+for (i = 0; i < should_fail.length; i++) {
+    if (re.test(should_fail[i])) {
+        alert('测试失败: ' + should_fail[i]);
+        success = false;
+        break;
+    }
+}
+if (success) {
+    alert('测试通过!');
+}
+
+
+
 
 
 
