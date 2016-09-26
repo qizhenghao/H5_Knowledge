@@ -2,10 +2,21 @@
 <head>
 	<meta charset="utf-8" />
     <title>小政的H5_1</title>
+
+    <div id="test-div">
+  <p id="test-js">javascript</p>
+  <p>Java</p>
+</div>
+
+<div id="list">
+    <p id="java">Java</p>
+    <p id="scheme">Scheme</p>
+    <p id="python">Python</p>
+</div>
+
 <script>
  // alert("Hello, world");
  // alert("qi zhenghao");
-
 //  alert(`多行
 // 字符串
 // 测试`);
@@ -308,46 +319,151 @@
 // xiaoming.name; // '小明'
 // xiaoming.hello(); // Hello, 小明!
 
-function Cat(name) {
-    this.name = name;
-}
+// function Cat(name) {
+//     this.name = name;
+// }
 
-Cat.prototype.say = function ()
-{
-    return 'Hello, ' + this.name + '!';
-}
-var kitty = new Cat('Kitty');
-var doraemon = new Cat('哆啦A梦');
-if (kitty && kitty.name === 'Kitty' && kitty.say && typeof kitty.say === 'function' && kitty.say() === 'Hello, Kitty!' && kitty.say === doraemon.say) {
-    alert('测试通过!');
-} else {
-    alert('测试失败!');
-}
-
-
+// Cat.prototype.say = function ()
+// {
+//     return 'Hello, ' + this.name + '!';
+// }
+// var kitty = new Cat('Kitty');
+// var doraemon = new Cat('哆啦A梦');
+// if (kitty && kitty.name === 'Kitty' && kitty.say && typeof kitty.say === 'function' && kitty.say() === 'Hello, Kitty!' && kitty.say === doraemon.say) {
+//     alert('测试通过!');
+// } else {
+//     alert('测试失败!');
+// }
 
 
+// function Student(props) {
+// 	this.name = props.name || 'Unnamed';
+// }
+
+// Student.prototype.hello = function () {
+// 	alert('Hello, ' + this.name + '!');
+// }
+
+// function PrimaryStudent(props) {
+// 	Student.call(this, props);
+// 	this.grade = props.grade || 1;
+// }
+
+// function inherits(Child, Parent) {
+// 	var F = function () {};
+// 	F.prototype = Student.prototype;
+// 	Child.prototype = new F();
+// 	Child.prototype.constructor = Child;
+// }
+
+// inherits(PrimaryStudent, Student);
+
+// PrimaryStudent.prototype.getGrade = function() {
+// 	return this.grade;
+// }
+
+// var xiaoming = new PrimaryStudent({
+// 	name:'小明',
+// 	grade:1
+// });
+
+// alert(xiaoming.getGrade());
+// xiaoming.hello()
 
 
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+// class Cat extends Animal {
+//     constructor(name) {
+//         super(name);
+//     }
+//     say() {
+//         return 'Hello, ' + this.name + '!';
+//     }
+// }
+// var kitty = new Cat('Kitty');
+// var doraemon = new Cat('哆啦A梦');
+// if ((new Cat('x') instanceof Animal) && kitty && kitty.name === 'Kitty' && kitty.say && typeof kitty.say === 'function' && kitty.say() === 'Hello, Kitty!' && kitty.say === doraemon.say) {
+//     alert('测试通过!');
+// } else {
+//     alert('测试失败!');
+// }
+
+// 可以调整浏览器窗口大小试试:
+// alert('window inner size: ' + window.innerWidth + ' x ' + window.innerHeight);
+// alert('appName = ' + navigator.appName + '\n' +
+//       'appVersion = ' + navigator.appVersion + '\n' +
+//       'language = ' + navigator.language + '\n' +
+//       'platform = ' + navigator.platform + '\n' +
+//       'userAgent = ' + navigator.userAgent);
+// alert('Screen size = ' + screen.width + ' x ' + screen.height);
+// if (confirm('重新加载当前页' + location.href + '?')) {
+//     location.reload();
+// } else {
+//     location.assign('/discuss'); // 设置一个新的URL地址
+// }
+// document.title = '努力学习JavaScript!';
+// console.log('document.cookie: ' + document.cookie);
 
 
+/******************************* DOM 解析 **************************/
 
+// // 获取<p>javascript</p>节点:
+// var js = document.getElementById('test-js');
+// console.log(js);
+// // 修改文本为JavaScript:
+// js.innerText = 'JavaScript';
+// // 修改CSS为: color: #ff0000, font-weight: bold
+// js.style.color = '#ff0000';
+// js.style.fontWeight = 'bold';
+// if (js && js.parentNode && js.parentNode.id === 'test-div' && js.id === 'test-js') {
+//     if (js.innerText === 'JavaScript') {
+//         if (js.style && js.style.fontWeight === 'bold' && (js.style.color === 'red' || js.style.color === '#ff0000' || js.style.color === '#f00' || js.style.color === 'rgb(255, 0, 0)')) {
+//             alert('测试通过!');
+//         } else {
+//             alert('CSS样式测试失败!');
+//         }
+//     } else {
+//         alert('文本测试失败!');
+//     }
+// } else {
+//     alert('节点测试失败!');
+// }
 
+// var d = document.createElement('style');
+// d.setAttribute('type', 'text/css');
+// d.innerHTML = 'p { color: red }';
+// document.getElementsByTagName('head')[0].appendChild(d);
 
+// var
+//     list = document.getElementById('list'),
+//     ref = document.getElementById('python'),
+//     haskell = document.createElement('p');
+// haskell.id = 'haskell';
+// haskell.innerText = 'Haskell';
+// list.insertBefore(haskell, ref);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// //排序1
+// var list = document.querySelector("#list");
+// var arr = list.innerHTML.match(/(<.+?>)(.+?)(<.+?>)/g);
+// list.innerHTML=arr.sort().join("");
+//排序2
+// var par=document.getElementById('list');
+// var i;
+// var list=[];
+// for(i=0;i<par.children.length;i++){
+// 	list.push(par.children[i].innerHTML);
+// }
+// list.sort(function(x,y){
+//         return x.innerHTML > y.innerHTML;
+//     });
+// for(i=0;i<par.children.length;i++){
+// 	par.children[i].innerHTML=list[i];
+// }
+// list.removeChild(list.children[0]);
 
 
 
@@ -362,5 +478,6 @@ if (kitty && kitty.name === 'Kitty' && kitty.say && typeof kitty.say === 'functi
 </script>
 
 <body> Hello , world. </body>
+
 </head>
 </html>
