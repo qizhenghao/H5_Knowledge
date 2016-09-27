@@ -3,12 +3,19 @@
 	<meta charset="utf-8" />
     <title>小政的H5_2</title>
 
+<body> Hello , world. </body>
+<br>
 
 <label><input type="radio" name="weekday" id="monday" value="1"> Monday</label>
 <label><input type="radio" name="weekday" id="tuesday" value="2"> Tuesday</label>
-</n>
+</br>
+
 <input type="text" id="email">
 
+<br>
+<input type="date" value="2016-09-26">
+<input type="datetime-local" value="2015-07-01T02:03:04">
+<input type="color" value="#ff0000">
 
 <script>
 var mon = document.getElementById('monday');
@@ -21,15 +28,156 @@ tue.checked; // true或者false
 // 
 var input = document.getElementById('email');
 input.value = 'test@example.com'; // 文本框的内容已更新
+</script>
+
+<!-- HTML -->
+<form id="test-form">
+    <input type="text" name="test">
+    <button type="button" onclick="doSubmitForm()">Submit</button>
+</form>
+
+<script>
+function doSubmitForm() {
+    var form = document.getElementById('test-form');
+    // 可以在此修改form的input...
+    // 提交form:
+    form.submit();
+}
+</script>
 
 
 
+<!-- HTML -->
+<form id="login-form" method="post" onsubmit="return checkForm()">
+    <input type="text" id="username" name="username">
+    <input type="password" id="input-password">
+    <input type="hidden" id="md5-password" name="password">
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function checkForm() {
+    var input_pwd = document.getElementById('input-password');
+    var md5_pwd = document.getElementById('md5-password');
+    // 把用户输入的明文变为MD5:
+    md5_pwd.value = toMD5(input_pwd.value);
+    // 继续下一步:
+    return true;
+}
+</script>
 
 
+<!-- HTML结构 -->
+<form id="test-register" action="#" target="_blank" onsubmit="return checkRegisterForm()">
+    <p id="test-error" style="color:red"></p>
+    <p>
+        用户名: <input type="text" id="username" name="username">
+    </p>
+    <p>
+        口令: <input type="password" id="password" name="password">
+    </p>
+    <p>
+        重复口令: <input type="password" id="password-2">
+    </p>
+    <p>
+        <button type="submit">提交</button> <button type="reset">重置</button>
+    </p>
+</form>
+
+<script>
+
+var checkRegisterForm = function () {
+	var testR = document.querySelector('#test-register');
+	var userName = testR.username.value;
+	var psd1 = testR.password.value;
+	var psd2 = document.querySelector("#password-2").value;
+
+	var g1 = /^\w{3,10}$/;
+	var g2 = /^\w{6,20}$/;
+
+	if (g1.test(userName) && g2.test(psd1) && psd1 === psd2) {
+		alert(true);
+		return true;
+	} else{
+		return false;
+	};
+}
 
 </script>
 
-<body> Hello , world. </body>
+<form onsubmit="return upload()" method="post" id="test-file-upload" e
+nctype="multipart/form-data">
+                    <input type="file"  id="test-file" name='test'/>
+                    <input type="submit" name="submit" value="submit" />
+                    <input type="button" class="search" value="搜索" />
+</form>
+<script type="text/javascript">
+
+var upload = function () {
+	var f = document.getElementById('test-file-upload');
+	var filename = f.querySelector('#test-file').value; // 'C:\fakepath\test.png'
+	console.log(filename);
+	if (!filename || !(filename.endsWith('.jpg') || !filename.endsWith('.png') || !filename.endsWith('.gif'))) {
+    	alert('Can only upload image file.');
+    	return false;
+    }
+    return true;
+}
+
+</script>
+
+<h3>图片预览</h3>
+<div id="image-preview" style="border: 1px solid #ccc; width: 980px;margin:auto; height: 200px; background-size: contain; background-repeat: no-repeat; background-position: center center;">
+</div>
+<div id="info_1">
+</div>
+<div>
+    <input type="file" id="file_1" name="file" value="" />
+</div>
+
+<script>
+    'use strict';
+    var fileInput = document.getElementById('file_1'),
+        info = document.getElementById('info_1'),
+        preview = document.getElementById('image-preview');
+    // 监听 type="file" 的change事件
+    fileInput.addEventListener('change', function () {
+        // 清除背景图片
+        preview.style.backgroundImage = '';
+        // 检查文件是否选择
+        if(!fileInput.value) {
+            info.innerHTML = '<span style="color:red;">没有选择图片</span>';
+            return false;
+        }
+
+        // 获取file引用
+        var file = fileInput.files[0];
+        console.log(file);
+        info.innerHTML = 
+                        '文件: ' + file.name + '<br>'
+                    +   '大小: ' + file.size + '<br>'
+                    +   '修改: ' + file.lastModifiedDate;
+
+        // 判断图片格式
+        if(file.type!=='image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+            var p = document.createElement('p');
+            p.innerHTML = '<span style="color:red;">不是有效的图片文件！</span>';
+            info.appendChild(p);
+            return false;
+        }
+
+        // 展示图片
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var data = e.target.result;// data:image/jpeg;base64,
+            preview.style.backgroundImage = 'url("'+data+'")';
+        }
+
+        // 以DataURL的形式读取文件
+        reader.readAsDataURL(file);
+    });
+
+</script>
 
 </head>
 </html>
