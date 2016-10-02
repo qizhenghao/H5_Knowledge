@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS选择器案例</title>
+	<style>
+		body {
+			color: red;   /*继承的样式  >  浏览器默认的样式 */
+		}
+
+		* {
+			color: blue;   /*通配符选择器的样式 >  继承的样式*/
+		}
+
+		h1 {
+			color: green; /*标签选择器的样式  >  通配符选择器的样式*/
+		}
+
+		.title-demo {
+			color: purple;  /*类选择器的样式  >　标签选择器的样式的优先级*/
+		}
+
+		#id-title {
+			color: yellow;   /*id选择器的优先级  >  类选择器的样式*/
+		}
+		
+
+		.aside .aside-dt h1 {
+			background-color: silver;
+		}
+
+		.aside #title-txt #id-title {
+			background-color: yellow;
+		}
+		/*
+		*       0，0，2， 1
+		*       0，2，1， 0
+		*       行内, ID, Class，标签，
+		*/
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="aside">
+			<div class="aside-dt" id="title-txt">
+				<h1 class="title-demo" id="id-title" style="color: pink;">我是一个标题</h1>	
+			</div>
+			<div class="aside-dd">
+				<p>我是一个段落</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

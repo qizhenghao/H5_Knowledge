@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07后代选择器案例</title>
+	<style>
+		/*.city {
+			color: red;
+		}*/
+		/*首先找到所有的 .box类对应的标签，然后找到 标签的所有后代li标签*/
+		.box li {
+			color: green;
+		}
+		div li {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<ul>
+			<li class="citys">北京</li>
+			<li class="citys">上海</li>
+			<li class="citys">广州</li>
+		</ul>
+		<ul>
+			<li class="citys">前端与移动开发学院</li>
+			<li>Java学院</li>
+			<li>网页平面学院</li>
+		</ul>
+		<ul>
+			<li>后来添加到li标签</li>
+		</ul>
+	</div>
+	
+	<div class="">
+		<ul>
+			<li>武汉</li>
+			<li>郑州</li>
+			<li>深圳</li>
+		</ul>
+	</div>
+</body>
+</html>

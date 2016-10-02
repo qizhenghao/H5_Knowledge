@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display css属性</title>
+	<style>
+		div {
+			background-color: silver;
+			display: inline; /*  可以让元素编成行内模式的标签*/
+		}
+		strong  {
+			display: block;
+			/*display: none;*/   /*直接把当前标签从页面中直接移除了，不影响页面的布局*/
+			background-color: yellow;
+			visibility: hidden;	  /*这个只是不显示，但还是占用页面的空间*/
+		}
+
+		.demo-inline {
+			display: inline-block;
+			height: 200px;
+		}
+
+		span {
+			height: 400px;
+			background-color: green;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 行内元素 -->
+	<span>我是span</span>
+	<strong>我是strong标签</strong>
+	<s>我是一个s标签</s>
+
+	<!-- 块级标签 -->
+	<div>
+		我是一个div
+	</div>
+	<div class="demo-inline">
+		我是一个行内块标签
+	</div>
+
+	<!-- ul  ol  dl -->
+	<h1></h1>
+</body>
+</html>

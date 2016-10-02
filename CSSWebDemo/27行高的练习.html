@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>27行高的练习</title>
+	<style>
+		* {
+			padding: 0;  margin: 0;
+		}
+		p.demo {
+			height: 100px;
+			line-height: 100px;
+
+			text-align: center;
+			font-size: 40px;
+			background-color: silver;
+		}
+		.wrap {
+			font: 16px "黑体";
+			background-color: green;
+		}
+
+		.wrap p {
+			background-color: red;
+			/*font: 20px/1.5em "宋体"; */  /* 此时行高是：30px= 20*1.5   */
+			/*font: 20px/1.5 "宋体";   */
+
+			font: 20px/40px "宋体";
+		}
+
+
+	</style>
+</head>
+<body>
+	
+	<p class="demo">
+		传智播客前端与移动开发学院
+	</p>
+
+	<div class="wrap">
+		<div>我是父div的文本内容</div> 
+		<p>
+			我是子段落标签的文本
+		</p>
+		我是父div的文本内容
+	</div>
+
+</body>
+</html>

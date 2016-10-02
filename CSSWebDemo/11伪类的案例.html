@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11伪类的案例</title>
+	<style>
+		a:link {
+			color: red;
+		}
+		a:visited {
+			color: purple;
+		}
+		a:hover {
+			background-color: silver;
+			color: white;
+		}
+
+		a:active {
+			color: yellow;
+		}
+
+		/*LoVe HAte*/
+
+		.txtName:focus {
+			background-color: green;
+		}
+
+		a:focus {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<a href="#">当前网站</a>
+	<a href="http://www.itcast.cn">传智官网</a>
+	<a href="http://web.itcast.cn">前端学院的官网</a>
+	<a href="http://www.baidu.com">百度的官网</a>
+	<a href="http://www.jd.com">新浪官网</a>
+
+	<input type="text" class="txtName">
+</body>
+</html>

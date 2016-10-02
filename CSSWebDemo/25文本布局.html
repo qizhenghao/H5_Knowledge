@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本布局</title>
+	<style>
+		.letter-spacingdemo {
+			/*可以控制字符的间距， 中文一个汉字就代表一个字符，英文一个字母代表一个字符*/
+			letter-spacing: 10px;
+		}
+
+		.word-spacingdemo {
+			/*下面的设置只对英文单词有影响，对中文字与字之间的距离没有影响。*/
+			/*如果中文字之间有空格的话，会把空格设置成20px宽度*/
+			word-spacing: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p class="letter-spacingdemo">
+		传智播客： http://www.itcast.cn
+	</p>
+	<p class="word-spacingdemo">
+		传智 播客： http://www.itcast.cn		
+		I  am  a  teacher。
+	</p>
+</body>
+</html>

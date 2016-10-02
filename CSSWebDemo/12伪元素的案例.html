@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12伪元素的案例</title>
+	<style>
+		.article-txt:first-line {
+			color: red;
+		}
+
+		.article-txt:first-letter {
+			font-size: 50px;
+		}		
+
+		/*选择第一个孩子是span标签的元素*/
+		span:first-child {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<p class="article-txt">
+		伪元素 是控制内容
+:first-line 伪元素
+:first-letter 伪元素
+注释：以上两个伪元素只能用于块级元素
+:first-child 伪元素，选择属于第一个子元素的元素。
+	例如：span:first-child{}  /*选择属于第一个子元素的所有span标签。*/
+:before与:after伪元素，可以设置元素之前后之后的 内容，并且配合content设置相关内容。比如：   #demo:after,#demo:before {  content:"--";display:block; }
+
+	</p>
+
+	<div>
+		<span>我是第一个儿子</span>
+		<span>我是第二个儿子</span>
+		<span>我是第三个儿子</span>
+	</div>
+
+	<p>
+		<span>第1个span</span>
+		<span>第2个span</span>
+	</p>
+</body>
+</html>

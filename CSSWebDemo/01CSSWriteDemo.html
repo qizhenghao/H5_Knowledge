@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01书写CSS的案例</title>
+
+	<!-- 内嵌的CSS样式 -->
+	<style type="text/css">
+		/*将某一个CSS文件的样式直接导入到当前的位置*/
+		/*导入样式必须写在所有的其他样式设置之前*/
+		@import url(CSS/main.css);
+
+		p { 
+			color: green; /*设置前景色，也就字体的颜色*/
+			background-color: silver;
+		}
+
+		/* S 导航条开始*/
+		ul {
+			background-color: red;
+		}
+		/* E 导航条结束*/
+
+		h1 {
+			height: 100px; width: 200px;
+		}
+	</style>
+
+	<!-- 外联CSS样式，外部CSS样式 -->
+	<!-- <link rel="stylesheet" href="CSS/main.css"> -->
+</head>
+<body>
+	<!-- id , name, style, -->
+	<!-- 行内的CSS样式 -->
+	<h1 style="color: red; font-size: 12px;">传智播客-前端与移动开发学院的CSS基础视频教程</h1>
+	<p>这是一个段落标签</p>
+	<!-- ul>(li>a[href="#"])*3  Emmate语法  >:父子关系 -->
+
+	<!--=S 导航开始 -->
+	<ul>
+		<li><a href="#">上海</a></li>
+		<li><a href="#">北京</a></li>
+		<li><a href="#">广州</a></li>
+	</ul>
+	<!--=E 导航结束 -->
+</body>
+</html>

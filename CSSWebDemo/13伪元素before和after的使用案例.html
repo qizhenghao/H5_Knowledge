@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13伪元素before和after的使用案例.html</title>
+	<style>
+		.wrap:before, .wrap:after {
+			content: "-------";
+			display: block;/*这个是让当前 伪元素 转换成块级元素*/
+		}
+	</style>
+
+</head>
+<body>
+	<div>
+		<hr>
+	</div>
+
+	<div class="wrap">
+		我是div
+	</div>
+
+	<div>
+		<hr>
+	</div>
+</body>
+</html>

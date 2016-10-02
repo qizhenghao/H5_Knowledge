@@ -7,13 +7,36 @@
     <br>
 <body>
 
+    <!-- HTML结构 -->
+<div class="testing">
+    <ul class="lang">
+        <li class="lang-javascript">JavaScript</li>
+        <li class="lang-python">Python</li>
+        <li class="lang-lua">Lua</li>
+    </ul>
+</div>
+
 </body>
 
 <script type="text/javascript">
 
 alert('jQuery版本：' + $.fn.jquery);
+$('ul.lang li.lang-javascript'); // [<li class="lang-javascript">JavaScript</li>]
+$('div.testing li.lang-javascript'); // [<li class="lang-javascript">JavaScript</li>]
+$('ul.lang li');//要选择所有的<li>节点，
+
+// $('form[name=upload] input');//把选择范围限定在name属性为upload的表单里
+
 
 
 </script>
 </head>
+<body>
+    <script src="../static/js/abc.js" type="text/
+    javascript">
+        
+    </script>
+</body>
+
+
 </html>
