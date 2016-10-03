@@ -1,8 +1,8 @@
-/*ÂúÆÁÒ³Ãæ*/
+/*æ»¡å±é¡µé¢*/
 html,body{
     height: 100%;
 }
-/*¶¨Òå¶¥²¿Í¨À¸*/
+/*å®šä¹‰é¡¶éƒ¨é€šæ */
 .jd_topBar{
     width: 100%;
     height: 45px;
@@ -17,8 +17,8 @@ html,body{
     height: 44px;
     width: 40px;
     padding: 12px 10px;
-    background-clip: content-box;/*ÉèÖÃ±³¾°´ÓÊ²Ã´Î»×Ó ¿ªÊ¼ÏÔÊ¾*/
-    background-origin: content-box;/*ÉèÖÃ±³¾°´ÓÊ²Ã´Î»×Ó ¿ªÊ¼¶¨Î»*/
+    background-clip: content-box;/*è®¾ç½®èƒŒæ™¯ä»ä»€ä¹ˆä½å­ å¼€å§‹æ˜¾ç¤º*/
+    background-origin: content-box;/*è®¾ç½®èƒŒæ™¯ä»ä»€ä¹ˆä½å­ å¼€å§‹å®šä½*/
 }
 .jd_topBar > .icon_back{
     left: 0;
@@ -41,13 +41,13 @@ html,body{
     margin-top: 7px;
 }
 
-/*·ÖÀàºĞ×Ó*/
+/*åˆ†ç±»ç›’å­*/
 .jd_category{
     height: 100%;
     padding-top: 45px;
     overflow: hidden;
 }
-/*×ó²àÀ¸*/
+/*å·¦ä¾§æ */
 .jd_category_left{
     width: 90px;
     height: 100%;
@@ -73,7 +73,7 @@ html,body{
     color: #d8505c;
 }
 
-/*ÓÒ²àÀ¸*/
+/*å³ä¾§æ */
 .jd_category_right{
     overflow: hidden;
     height: 100%;
