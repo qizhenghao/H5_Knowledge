@@ -215,14 +215,13 @@ function downTime(){
             return false;
         }
         time -- ;
+
         /*格式化*/
         var h = Math.floor(time/3600);
         var m = Math.floor(time%3600/60);
         var s = time%60;
 
-        console.log(h);
-        console.log(m);
-        console.log(s);
+        console.log(h + ', ' + m + ', ' + s);
 
         spans[0].innerHTML = Math.floor(h/10);
         spans[1].innerHTML = h%10;
