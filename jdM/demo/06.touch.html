@@ -39,16 +39,18 @@
     });
     /*触摸滑动事件*/
     a.addEventListener('touchmove',function(e){
-        console.log('touchmove');
-        console.log(e.changedTouches);
         console.log(e.targetTouches);
         console.log(e.touches);
+        console.log('touchmove');
+        console.log(e.changedTouches);
+        
     });
     /*触摸结束事件*/
     a.addEventListener('touchend',function(e){
         console.log('touchend');
-        console.log(e.changedTouches);
+        
         console.log(e.targetTouches);
+        console.log(e.changedTouches);
         console.log(e.touches);
     });
 </script>
