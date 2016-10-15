@@ -26,9 +26,14 @@ body{
 }
 
 .user-guo-text {
-    font-size: 0.3rem;
+    font-size: 0.33rem;
     color: #fdd600;
     font-weight: bold; 
+}
+.user_info > ul >li>p>img{
+    width: 0.30rem;
+    height: 0.30rem;
+    margin-left: 0.12rem;
 }
 
 .line{
@@ -53,7 +58,17 @@ body{
     height:100%;
     border-radius: 50%;
 }
-
+.anchor_head_icon {
+    width: 0.66rem;
+    height: 0.66rem;
+    margin: 0 auto;
+    margin-top: -0.85rem;
+    padding-left: 0.66rem;
+}
+.anchor_head_icon > img{
+    width: 0.66rem;
+    height: 0.66rem;
+}
 .anchor_name {
     text-align: center;
     max-width: 5.25rem;
@@ -99,7 +114,7 @@ body{
 }
 .title_line_border {
     background: #DDDEE3;
-    height: 0.02rem;
+    height: 0.03rem;
 }
 
 /*守护时长*/
@@ -113,19 +128,19 @@ body{
     float: left;
     text-align: center;
 }
-.guard_time_section .guard_time_list_div > ul > li >div{
+.guard_time_section .guard_time_list_div > ul > li >div:first-of-type{
     display: block;
     width: 87.5%;
     height: 100%;
     margin: 0 auto;
-    border: 0.02rem solid #DDDEE3;
+    border: 0.04rem solid #F2F2F2;
 }
 .guard_time_section .guard_time_list_div > ul > li >div >p>img{
     width: 0.30rem;
-    height: 0.30rem%;
+    height: 0.30rem;
     margin-left: 0.12rem;
 }
-.guard_time_section .guard_time_list_div > ul > li > div >p:first-of-type{
+.guard_time_section .guard_time_list_div > ul > li > div:first-of-type >p:first-of-type{
     color: #282828;
     padding-top: 0.44rem;
     font-size: 0.30rem;
@@ -133,9 +148,29 @@ body{
     text-decoration: line-through; 
     text-align: center;
 }
-.guard_time_section .guard_time_list_div > ul > li > div >p:last-of-type{
+.guard_time_section .guard_time_list_div > ul > li > div:first-of-type >p:last-of-type{
     color: #515151;
     font-size: 0.27rem;
+}
+
+.guard_discount {
+    background: url('http://s.xnimg.cn/wap/static/h5/guard/image/selected_down_icon.png');
+    background-repeat: no-repeat;
+    width: 60%;
+    height: 0.6rem;
+    background-size: 100% 100%; 
+    margin-left: 20%;
+    margin-top: -1.9rem;   
+    font-size: 0.35rem;
+    color: #fdd600;
+    text-align: center;
+    font-weight: bold; 
+    line-height: 0.6rem; 
+}
+.guard_discount > img {
+    width: 0.33rem;
+    height: 0.33rem;
+    margin-left: 0.13rem;  
 }
 
 .term_validity {
