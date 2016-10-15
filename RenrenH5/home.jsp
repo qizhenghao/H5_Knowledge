@@ -21,7 +21,7 @@
                     </p>
                 </li>
                 <li>
-                    <p style="text-align: right;">剩余人人果：<span class="user-guo-text">${amout}</span>
+                    <p style="text-align: right;">剩余人人果：<span class="user-guo-text">${amout}</span><img src="http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gold_icon.png"></img>
                     </p>
                 </li>
             </ul>
@@ -31,6 +31,7 @@
 
         <div class="anchor_info">
              <div class="anchor_head"><img class="anchor_head_img" src="${wardHeadUrl}"></div>
+             <div class="anchor_head_icon"><img class="anchor_head_icon_img" src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_ward_icon.png"></div>
              <div class="anchor_name">守护的主播：${guardInfo.wardName}</div>
              <div class="anchor_id">人人号 ${wardId}</div>
              <div class="anchor_guarding"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_icon.png"> 守护中（<span class="anchor_guarding_time"></span>到期）</div>
@@ -56,17 +57,20 @@
                             <p><span class="price"></span><img src="http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gold_icon.png"></img></p>
                             <p><span class="month"></span>个月</p>
                         </div>
+                        <div class="guard_discount"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gold_icon.png"></img>
+                        </div>
                     </li>
                     <li>
                         <div>
                             <p><span class="price"></span><img src="http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gold_icon.png"></img></p>
                             <p><span class="month"></span>个月</p>
                         </div>
+                        <div class="guard_discount"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gold_icon.png"></img>
+                        </div>
                     </li>
                 </ul>
             </div>
         </section>
-
         <div class="term_validity">
             <p style="color: #a0a0a0;"><span class="term_validity_str">有效期：</span><span class="term_validity_time"></span><span class="term_validity_str1"> 至 </span><span class="term_validity_time"></span> 
             </p>
