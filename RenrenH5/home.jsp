@@ -33,7 +33,7 @@
              <div class="anchor_head"><img class="anchor_head_img" src="${wardHeadUrl}"></div>
              <div class="anchor_head_icon"><img class="anchor_head_icon_img" src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_ward_icon.png"></div>
              <div class="anchor_name">守护的主播：${guardInfo.wardName}</div>
-             <div class="anchor_id">人人号 ${wardId}</div>
+             <div class="anchor_id">人人号 ${nickName}</div>
              <div class="anchor_guarding"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_icon.png"> 守护中（<span class="anchor_guarding_time"></span>到期）</div>
         </div>
 
@@ -89,23 +89,23 @@
             <div class="guard_privilege_list_div">
                 <ul class="clearfix">
                     <li>
-                        <a href="#"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon1.png"/></a>
+                        <a><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon1.png"/></a>
                         <p>守护标识</p>
                     </li>
                     <li>
-                        <a href="#"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon2.png"/></a>
+                        <a><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon2.png"/></a>
                         <p>专属入场特效</p>
                     </li>
                     <li>
-                        <a href="#"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon3.png"/></a>
+                        <a><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon3.png"/></a>
                         <p>防禁言</p>
                     </li>
                     <li>
-                        <a href="#"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon4.png"/></a>
+                        <a><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon4.png"/></a>
                         <p>入场特效</p>
                     </li>
                     <li>
-                        <a href="#"><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon5.png"/></a>
+                        <a><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_privilege_icon5.png"/></a>
                         <p>专属礼物</p>
                     </li>
                 </ul>
@@ -115,11 +115,11 @@
         <div class="guard_note_div">
             <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">开通守护，主播将立即获得相应星光值。</p>
             <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">守护骑士特权仅对守护主播有效。</p>
-            <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">开通守护即成为该主播骑士团成员。每周贡献值前四的骑士，将以此获得蔷薇骑士、鸢尾骑士、铃兰骑士和木槿骑士称号。榜单每自然周重新计算排名。 </p>
-            <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">可同时守卫多位主播。</p>
+            <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">开通守护即成为该主播骑士团成员。每周贡献值前四的骑士，将依次获得蔷薇骑士、鸢尾骑士、铃兰骑士和木槿骑士称号。榜单每自然周重新计算排名。 </p>
+            <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">可同时守护多位主播。</p>
             <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">针对同一主播，守护有效期最多为3年。</p>
             <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">VIP用户需关闭隐身查看功能，才可展示相应入场特效。</p>
-            <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">备注：守护时长1个月按31天计算。</p>
+            <p><img src="http://s.xnimg.cn/wap/static/h5/guard/image/guard_gray_icon.png">守护时长1个月按31天计算。</p>
         </div>
     
     </div>
@@ -129,6 +129,11 @@
         var leftGuo = ${amout};
         window.payList = ${pay};
         var guardInfo = ${guardInfo};
+        var nickName = '';
+        var isNoHasNick = ${empty nickName};
+        var isVj = ${isVj};
+        var isS = ${isS};
+        var roomId = ${roomId};
 
 
     </script>

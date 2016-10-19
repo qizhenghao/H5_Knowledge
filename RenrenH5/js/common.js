@@ -99,7 +99,7 @@ Toast.prototype = {
         var width1 = this.context.width();
         var width2 = msgEntity.find('span').width()/2;
         var left = this.left == null ? this.context.width()/2-msgEntity.find('span').width()/4 : this.left;  
-        var top = this.top == null ? '48%' : this.top;  
+        var top = this.top == null ? '78%' : this.top;  
         msgEntity.css({position:'absolute',top:top,'z-index':'99',left:left,'background-color':'black',color:'white','font-size':'0.33rem',padding:'0.17rem',margin:'0.17rem','border-radius':'0.5rem'});  
         msgEntity.hide();  
     },  
@@ -120,4 +120,21 @@ function compareDate(a, b) {
     var lktimes = lktime.getTime();
 
     return starttimes >= lktimes;
+}
+
+
+//埋点
+function dataStatistic(biz,view,opt,data) {
+    $.ajax({
+    url: "http://huodong.renren.com/config/st/ajax/statistic/" +biz+"/"+view+"/"+ opt,
+    type: "POST",
+    dataType: 'json',
+    data: data,
+    error: function() {
+        console.log('error');
+    },
+    success: function(data) {
+                console.log(data);
+            }
+    });
 }

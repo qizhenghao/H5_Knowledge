@@ -23,6 +23,12 @@ function setName(){
     // var pay = window.pay;
     var fmt = "yyyy-MM-dd";
     var userName = document.querySelector('.user-name-text');
+    if (guardInfo.guardName.indexOf('\n') >= 0) {
+        guardInfo.guardName = guardInfo.guardName.replace(/[\r\n]/g, ' ');
+    }
+    if (guardInfo.wardName.indexOf('\n') >= 0) {
+        guardInfo.wardName = guardInfo.wardName.replace(/[\r\n]/g, ' ');
+    }
     userName.innerText = guardInfo.guardName;
     var anchor_name = document.querySelector('.anchor_name');
     anchor_name.innerText = '守护的主播：' + guardInfo.wardName;
@@ -31,6 +37,17 @@ function setName(){
     var leftGuoDom = document.querySelector('.user-guo-text');
     var anchor_guarding = document.querySelector('.anchor_guarding');
     var anchor_guarding_time = document.querySelector('.anchor_guarding_time');
+    if (isNoHasNick) {
+        var anchor_id = document.querySelector('.anchor_id');
+        anchor_id.innerText = '人人号 ' + wardId;
+    }
+    if (!isVj) {
+        if (typeof(isS)!="undefined" && isS) {
+            document.querySelector('.anchor_head_icon_img').src = "http://s.xnimg.cn/wap/static/h5/guard/image/guard_ward_s_icon.png";
+        } else {
+            document.querySelector('.anchor_head_icon').style.display = 'none';
+        }
+    }
 
     var validTimeArr = document.querySelectorAll('.term_validity_time');
     var term_validity_str = document.querySelector('.term_validity_str');
@@ -109,13 +126,14 @@ function setName(){
         guardDiv[i].querySelector('p > img').src = 'http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gray_icon.png';
      }
 
-     if (!compareDate(addDate(guardInfo.endTime, payList[0].months * 31).Format(fmt), threeYearLater)) {
+    if (!compareDate(addDate(guardInfo.endTime, payList[0].months * 31).Format(fmt), threeYearLater)) {
         selected(guardDiv[0], 0);
      } else {
         setGuardDivGray(0);
         selectedGuo.innerText = 0;
         term_validity_str.innerText = '无法继续开通守护了, 最长守护为3年';
      }
+
      unSelected(guardDiv[1]);
      unSelected(guardDiv[2]);
      guardDiv[0].querySelector('p:first-of-type').style.textDecoration = "none";
@@ -167,7 +185,7 @@ function setName(){
 
      var openBtn = document.querySelector('button');
      openBtn.addEventListener('click', function(event) { 
-
+     dataStatistic("h5zhibo","guardknight","clickOpen", {ext1: guardId});
         if (compareDate(addDate(guardInfo.endTime, payList[currIndex].months * 31).Format(fmt), threeYearLater)) {
             new Toast({context:$('body'),message:'守护同一主播最长为3年', left:'29%'}).show(); 
             return;
@@ -193,24 +211,55 @@ function setName(){
                 now = new Date(guardInfo.endTime);
                 validTimeArr[1].innerText = addDate(now, payList[currIndex].months * 31).Format("yyyy-MM-dd");
                 document.querySelector('.anchor_info').style.paddingBottom = '0.1rem';
+                dataStatistic("h5zhibo","guardknight","openSuccess", {
+                    ext1: guardId,
+                    ext2: payList[lockIndex].months
+                });
+
                 if ("false" != isInvisible) {
                     window.wxc.xcConfirm("您目前已开启隐身查看直播功能，守护骑士特效无法展示，是否关闭隐身功能？", "关闭隐身", "暂不关闭", "custom", {
                         title:"温馨提示",
                         onOk:function(){
-                            window.location.href = "renrenaction://purchase";
+                          $.ajax({
+                              url: 'http://livevip.renren.com/vip/updateVipSetUp',
+                              type: 'get',
+                              data: {
+                              type: '2',
+                              userId:guardId,
+                              invisible:0,
+                              },
+                              success: function(result){
+                                            console.log(result);
+                                           if (!result) {
+                                               alert('更改失败，请重试');
+                                               return;
+                                            } else {
+                                                new Toast({context:$('body'),message:'关闭成功', left:'40%'}).show(); 
+                                            }
+                                  }
+                              });
                     }});
                 }
                 new Toast({context:$('body'),message:'购买成功', left:'40%'}).show(); 
                 initDiscount();
-            } else {
+                if (compareDate(addDate(guardInfo.endTime, payList[0].months * 31).Format(fmt), threeYearLater)) {
+                    setGuardDivGray(0);
+                    selectedGuo.innerText = 0;
+                    validTimeArr[1].style.display = 'none';
+                    term_validity_str1.style.display = 'none';
+                    term_validity_str.innerText = '无法继续开通守护了, 最长守护为3年';
+                 }
+            } else if(result.code == 1217){
+                window.wxc.xcConfirm("主人，你的人人果数量貌似不够支付这个守护哦", "跑去充值", "狠心离开", "custom", {onOk:function(){
+                window.location.href = "renrenaction://purchase";
+             }});
+            }else {
                 new Toast({context:$('body'),message:'未知错误', left:'40%'}).show(); 
             }
         }
 
         function fail(code) {
-             window.wxc.xcConfirm("主人，你的人人果数量貌似不够支付这个守护哦", "跑去充值", "狠心离开", "custom", {onOk:function(){
-                window.location.href = "renrenaction://purchase";
-             }});
+             new Toast({context:$('body'),message:'网络未连接', left:'40%'}).show(); 
         }
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () { // 状态发生变化时，函数被回调
@@ -230,8 +279,8 @@ function setName(){
         request.open('POST', 'http://livevip.renren.com/guardknight/payGuard');
         request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         var days = payList[currIndex].months * 31;
-        var startCount = payList[currIndex].totalPrice * 10;
-        var param = {guardId:guardId, wardId:wardId, days:days, price:payList[currIndex].price, startCount:startCount};
+        var starCount = payList[currIndex].totalPrice * 10;
+        var param = {roomId:roomId, guardId:guardId, wardId:wardId, days:days, price:payList[currIndex].price, starCount:starCount};
         lockIndex = currIndex;
         request.send(postDataFormat(param));
      }, false);

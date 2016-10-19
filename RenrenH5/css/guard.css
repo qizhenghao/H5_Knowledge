@@ -19,7 +19,13 @@ body{
     font-size: 0.3rem;
     color: #a0a0a0;
 }
-
+.user_info > ul >li > p {
+    width: 4.5rem; 
+    height: 0.53rem;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
 .user-name-text {
     font-size: 0.33rem;
     color: #282828;
