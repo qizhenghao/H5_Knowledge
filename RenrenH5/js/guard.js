@@ -43,7 +43,7 @@ function setName(){
     }
     if (!isVj) {
         if (typeof(isS)!="undefined" && isS) {
-            document.querySelector('.anchor_head_icon_img').src = "http://s.xnimg.cn/wap/static/h5/guard/image/guard_ward_s_icon.png";
+            document.querySelector('.anchor_head_icon_img').src = "http://a.xnimg.cn/wap/mobile/guard/image/guard_ward_s_icon.png";
         } else {
             document.querySelector('.anchor_head_icon').style.display = 'none';
         }
@@ -82,7 +82,7 @@ function setName(){
         if (i > 0) {
             discountArr[i-1].innerText = payList[i].totalPrice;
             var img = document.createElement('img');
-            img.src = 'http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gold_icon.png';
+            img.src = 'http://a.xnimg.cn/wap/mobile/guard/image/renrenguo_gold_icon.png';
             discountArr[i-1].appendChild(img);
         }
      }
@@ -123,7 +123,7 @@ function setName(){
 
      var setGuardDivGray = function(i) {
         guardDiv[i].style.backgroundColor = '#F2F2F2'
-        guardDiv[i].querySelector('p > img').src = 'http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gray_icon.png';
+        guardDiv[i].querySelector('p > img').src = 'http://a.xnimg.cn/wap/mobile/guard/image/renrenguo_gray_icon.png';
      }
 
     if (!compareDate(addDate(guardInfo.endTime, payList[0].months * 31).Format(fmt), threeYearLater)) {
@@ -148,9 +148,9 @@ function setName(){
         } 
      }
      var setDiscountDomGray = function(dom, i) {
-        dom.style.backgroundImage = 'url(http://s.xnimg.cn/wap/static/h5/guard/image/select_down_gray_icon.png)';
+        dom.style.backgroundImage = 'url(http://a.xnimg.cn/wap/mobile/guard/image/select_down_gray_icon.png)';
         dom.style.color = '#C8C8C8';
-        dom.querySelector('img').src = 'http://s.xnimg.cn/wap/static/h5/guard/image/renrenguo_gray_icon.png';
+        dom.querySelector('img').src = 'http://a.xnimg.cn/wap/mobile/guard/image/renrenguo_gray_icon.png';
         setGuardDivGray(i);
      }
     initDiscount();
@@ -196,7 +196,8 @@ function setName(){
             var isInvisible = result.isInvisible
             console.log(result.msg);
             if (result.code == 0) {
-                leftGuoDom.innerText = leftGuo - payList[lockIndex].totalPrice;
+                leftGuo = leftGuo - payList[lockIndex].totalPrice;
+                leftGuoDom.innerText = leftGuo;
                 var dayCount = payList[lockIndex].months * 31;
                 
                 if ('0' == guardInfo.endTime) {
@@ -279,8 +280,7 @@ function setName(){
         request.open('POST', 'http://livevip.renren.com/guardknight/payGuard');
         request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         var days = payList[currIndex].months * 31;
-        var starCount = payList[currIndex].totalPrice * 10;
-        var param = {roomId:roomId, guardId:guardId, wardId:wardId, days:days, price:payList[currIndex].price, starCount:starCount};
+        var param = {roomId:roomId, guardId:guardId, wardId:wardId, days:days};
         lockIndex = currIndex;
         request.send(postDataFormat(param));
      }, false);

@@ -160,7 +160,7 @@ body{
 }
 
 .guard_discount {
-    background: url('http://s.xnimg.cn/wap/static/h5/guard/image/selected_down_icon.png');
+    background: url('http://a.xnimg.cn/wap/mobile/guard/image/selected_down_icon.png');
     background-repeat: no-repeat;
     width: 60%;
     height: 0.6rem;
@@ -201,6 +201,21 @@ button {
     margin-left: 4%;
     margin-bottom: 0.5rem;
     margin-top: 0.1rem;
+}
+
+.guard_four {
+    width: 100%;
+    /*background: url('http://a.xnimg.cn/wap/mobile/guard/image/guard_four_icon.jpg');*/
+    /*background-repeat: no-repeat;*/
+    height: 3.93rem;
+    /*background-size: 100% 100%; */
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+.guard_four > img{
+    width: 96%;
+    height: 100%;
+    margin-left: 0.27rem;
 }
 
 /*守护特权*/
