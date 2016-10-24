@@ -1,0 +1,117 @@
+
+
+body{
+    font-family: 'NotoSans-Regular NotoSans-Bold';
+    background: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.item_bg {
+	width: 100%;
+	height: auto;
+}
+.top_div {
+	background: #000;
+}
+.top_div > img{
+	background: #000;
+	width: 100%;
+}
+
+.middle_div > ul {
+	width: 100%;
+	height: 6rem;
+	background-size: 100% 100%;
+	/*background-image: url('http://a.xnimg.cn/wap/mobile/guard/image/renrenguo_gold_icon.png');*/
+}
+
+.bottom_div > img{
+	width: 100%;
+}
+
+.middle_div > ul {
+	width: 100%;
+	height: 6rem;
+}
+.middle_div .item_ul > li{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.item_user_info {
+	width: 100%;
+	height: 2.2rem;
+}
+.item_user_info > li{
+	float: left;
+}
+.item_head_img {
+	margin-left: 0.8rem;
+	margin-top: 0.63rem;
+	width: 1.33rem;
+	height: 1.33rem;
+	border-radius: 50%;
+}
+.item_name {
+	margin-top: 0.86rem;
+	margin-left: 0.3rem;
+	color: #78e5ff;
+	font-size: 0.33rem;
+}
+.tao {
+	margin-top: 0.23rem;
+	margin-left: 0.3rem;
+	color: #7c84a5;
+	font-size: 0.33rem;
+}
+.item_ranking_num {
+	color: #ffffff;
+	font-size: 0.33rem;
+}
+.item_gift_list {
+	width: 77.3%;
+	color: #81929b;
+	font-size: 0.28rem;
+	margin-left: 0.67rem;
+	margin-top: 0.18rem;
+	height: 3rem;
+}
+.item_gift_list > li {
+	width: 50%;
+    float: left;
+}
+.item_gift_list > li{
+	height: 0.52rem;
+	line-height: 0.52rem;
+	margin-top: 0.15rem;
+}
+.item_gift_list > li > span{
+	vertical-align: middle;
+	margin-left: 0.2rem;
+}
+.item_gift_list > li > img {
+	width: 0.52rem;
+	height: 0.52rem;
+	vertical-align: middle;
+}
+
+.item_ul > li:last-of-type .item_gift_list {
+	margin-left: 0.40rem;
+}
+.item_ul > li:last-of-type .item_head_img {
+	margin-left: 0.50rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
