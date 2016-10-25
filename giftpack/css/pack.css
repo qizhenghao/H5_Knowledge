@@ -18,7 +18,17 @@ body{
 	background: #000;
 	width: 100%;
 }
+.active_div {
+	position: absolute;
+	top: 8rem;
+	left: 6.24rem;
+	width: 3.1rem;
+	height: 0.9rem;
+}
 
+.middle_div {
+	margin-bottom: 1.5rem;
+}
 .middle_div > ul {
 	width: 100%;
 	height: 6rem;
@@ -28,6 +38,8 @@ body{
 
 .bottom_div > img{
 	width: 100%;
+	position: fixed;
+	bottom: 0;
 }
 
 .middle_div > ul {
@@ -103,6 +115,12 @@ body{
 	margin-left: 0.50rem;
 }
 
+
+
+.dialog_window .dialog_layer{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #B9B9B9; opacity: 0.5; z-index: 2147000000;}
+.dialog_window .dialog_box{position: fixed; left: 7.83%; top: 0.93rem; z-index: 2147000001; width: 83.34%; height: 88.3%;background-image: url('http://a.xnimg.cn/wap/mobile/giftpack/image/giftpack_dialog_bg.png');background-size: 100% 100%;}
+.dialog_window .dialog_box .dialog_box_img{width: 0%;height: 0%;background-color: transparent;}
+.dialog_window .dialog_box .cls_btn{display: block; cursor: pointer; width: 1rem; height: 1rem; position: absolute; top: 0.05rem; right: 0.05rem;}
 
 
 

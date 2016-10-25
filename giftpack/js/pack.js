@@ -6,248 +6,79 @@
 
 /*页面加载完成之后执行*/
 window.onload = function(){
-    /*解析*/
-    payJson();
     
-    setName();
+    initActiveBtn();
+
+    initList();
+    
+    initBottomBtn();
     
 };
 
-function payJson(){
-    
+function initActiveBtn() {
+    var dialogId = 'dialogId_' + (new Date()).getDate();
+    var $dialog = null;
+    document.querySelector('.active_div').addEventListener('click', function(event) {
+        if ($dialog == null) {
+            $dialog = $("<div>").addClass("dialog_window");//弹窗插件容器
+            var $dialog_layer = $("<div>").addClass("dialog_layer");//遮罩层
+            var $dialog_box = $("<div>").addClass("dialog_box");//弹窗盒子
+            var $dialog_box_img = $("<img>").addClass("dialog_box_img");
+            var $cls_btn = $("<a>").addClass("cls_btn");//关闭按钮
+            $dialog_box_img.attr('src', 'http://a.xnimg.cn/wap/mobile/giftpack/image/giftpack_dialog_bg.jpg');
+            $dialog.attr("id", dialogId).append($dialog_layer).append($dialog_box.append($dialog_box_img).append($cls_btn));
+            $("body").append($dialog);
+            $dialog.fadeIn(300);
+            $cls_btn.click(function() {
+                $dialog.fadeOut();
+            });
+        } else {
+            $dialog.fadeIn(300);
+        }
+    });
 }
 
-function setName(){
-    
+function initList(){
 
+    if (typeof(halloweenInfo) == "undefined" || halloweenInfo.length === 0) {
+        return;
+    }
 
+    var middleDiv = document.querySelector('.middle_div');
+    var itemUl = document.querySelector('.item_ul');
+    var itemLiArr = document.querySelectorAll('.item_li');
 
-
-
-
- /*
- * 使用说明:
- * window.wxc.Pop(popHtml, [type], [option ',' ])
- * popHtml:html字符串
- * type:window.wxc.xcConfirm.typeEnum集合中的元素
- * options:扩展对象
- * 用法:
- * 1. window.wxc.xcConfirm("我是弹窗<span>lalala</span>");
- * 2. window.wxc.xcConfirm("成功","success");
- * 3. window.wxc.xcConfirm("请输入","input",{onOk:function(){}})
- * 4. window.wxc.xcConfirm("自定义",{title:"自定义"})
- */
-(function($){
-    window.wxc = window.wxc || {};
-    window.wxc.xcConfirm = function(popHtml, okStr, cancelStr, type, options) {
-        var btnType = window.wxc.xcConfirm.btnEnum;
-        var eventType = window.wxc.xcConfirm.eventEnum;
-        var popType = {
-            info: {
-                title: "信息",
-                icon: "0 0",//蓝色i
-                btn: btnType.ok
-            },
-            success: {
-                title: "成功",
-                icon: "0 -48rem",//绿色对勾
-                btn: btnType.ok
-            },
-            error: {
-                title: "错误",
-                icon: "-48rem -48rem",//红色叉
-                btn: btnType.ok
-            },
-            confirm: {
-                title: "提示",
-                icon: "-48rem 0",//黄色问号
-                btn: btnType.okcancel
-            },
-            warning: {
-                title: "警告",
-                icon: "0 -96rem",//黄色叹号
-                btn: btnType.okcancel
-            },
-            input: {
-                title: "输入",
-                icon: "",
-                btn: btnType.ok
-            },
-            custom: {
-                title: "",
-                icon: "",
-                btn: btnType.okcancel
-            }
-        };
-        var itype = type ? type instanceof Object ? type : popType[type] || {} : {};//格式化输入的参数:弹窗类型
-        var config = $.extend(true, {
-            //属性
-            title: "", //自定义的标题
-            icon: "", //图标
-            btn: btnType.ok, //按钮,默认单按钮
-            //事件
-            onOk: $.noop,//点击确定的按钮回调
-            onCancel: $.noop,//点击取消的按钮回调
-            onClose: $.noop//弹窗关闭的回调,返回触发事件
-        }, itype, options);
-        
-        var $txt = $("<p>").html(popHtml);//弹窗文本dom
-        var $tt = $("<span>").addClass("tt").text(config.title);//标题
-        var icon = config.icon;
-        var $icon = icon ? $("<div>").addClass("bigIcon").css("backgroundPosition",icon) : "";
-        var btn = config.btn;//按钮组生成参数
-        
-        var popId = creatPopId();//弹窗索引
-        
-        var $box = $("<div>").addClass("xcConfirm");//弹窗插件容器
-        var $layer = $("<div>").addClass("xc_layer");//遮罩层
-        var $popBox = $("<div>").addClass("popBox");//弹窗盒子
-        var $ttBox = $("<div>").addClass("ttBox");//弹窗顶部区域
-        var $txtBox = $("<div>").addClass("txtBox");//弹窗内容主体区
-        var $btnArea = $("<div>").addClass("btnArea");//按钮区域
-        
-        var $ok = $("<a>").addClass("sgBtn").addClass("ok").text(okStr);//确定按钮
-        var $cancel = $("<a>").addClass("sgBtn").addClass("cancel").text(cancelStr);//取消按钮
-        var $input = $("<input>").addClass("inputBox");//输入框
-        var $clsBtn = $("<a>").addClass("clsBtn");//关闭按钮
-        
-        //建立按钮映射关系
-        var btns = {
-            cancel: $cancel,
-            ok: $ok
-        };
-        
-        init();
-        
-        function init(){
-            //处理特殊类型input
-            if(popType["input"] === itype){
-                $txt.append($input);
-            }
-            
-            creatDom();
-            bind();
+    function Item(itemDom) {
+    this.name = itemDom.querySelector('.item_name');
+    this.head = itemDom.querySelector('.item_head_img');
+    this.totalNum = itemDom.querySelector('.item_ranking_num');
+    this.giftNumList = itemDom.querySelectorAll('.item_gift_list > li > span');
+    this.hello = function () {
+        alert('Hello, ' + this.name + '!');
         }
-        
-        function creatDom(){
-            if ('' != config.title) {
-                $popBox.append($ttBox.append($tt));
-            }
-            $popBox.append(
-            //     $ttBox.append(
-            //         $clsBtn
-            //     ).append(
-            //         $tt
-            //     )
-            // ).append(
-                $txtBox.append($icon).append($txt)
-            ).append(creatBtnGroup(btn)
-            );
-            $box.attr("id", popId).append($layer).append($popBox);
-            $("body").append($box);
-            if ('' != config.title) {
-                document.querySelector('.popBox').style.height = '4rem';
-                document.querySelector(".txtBox > p").style.paddingTop = '0.1rem';
-            } else {
-                document.querySelector('.popBox').style.height = '3.2rem';
-                document.querySelector(".txtBox > p").style.paddingTop = '0.4rem';
-            }
-        }
-        
-        function bind(){
-            //点击确认按钮
-            $ok.click(doOk);
-            
-            //回车键触发确认按钮事件
-            $(window).bind("keydown", function(e){
-                if(e.keyCode == 13) {
-                    if($("#" + popId).length == 1){
-                        doOk();
-                    }
-                }
-            });
-            
-            //点击取消按钮
-            $cancel.click(doCancel);
-            
-            //点击关闭按钮
-            $clsBtn.click(doClose);
-        }
+    }
 
-        //确认按钮事件
-        function doOk(){
-            var $o = $(this);
-            var v = $.trim($input.val());
-            if ($input.is(":visible"))
-                config.onOk(v);
-            else
-                config.onOk();
-            $("#" + popId).remove(); 
-            config.onClose(eventType.ok);
+    for (var i = 0; i < halloweenInfo.length; i++) {
+        if (i!==0 && i%2===0) {
+            var node = itemUl.cloneNode(true);
+            middleDiv.appendChild(node);
+            // itemLiArr.concat(node.querySelectorAll('.item_li'));
+            itemLiArr = document.querySelectorAll('.item_li');
         }
-        
-        //取消按钮事件
-        function doCancel(){
-            var $o = $(this);
-            config.onCancel();
-            $("#" + popId).remove(); 
-            config.onClose(eventType.cancel);
+        var itemLi = new Item(itemLiArr[i]);
+        var itemInfo = halloweenInfo[i];
+        itemLi.name.innerText = itemInfo.username;
+        itemLi.head.src = itemInfo.userHeadUrl;
+        itemLi.totalNum.innerText = itemInfo.count;
+        for(var j = 0; j < itemInfo.giftDetailInfo.length; j++) {
+            itemLi.giftNumList[j].innerText = itemInfo.giftDetailInfo[j].giftCount;
         }
-        
-        //关闭按钮事件
-        function doClose(){
-            $("#" + popId).remove();
-            config.onClose(eventType.close);
-            $(window).unbind("keydown");
-        }
-        
-        //生成按钮组
-        function creatBtnGroup(tp){
-            var $bgp = $("<div>").addClass("btnGroup");
-            $.each(btns, function(i, n){
-                if( btnType[i] == (tp & btnType[i]) ){
-                    $bgp.append(n);
-                }
-            });
-            return $bgp;
-        }
-
-        //重生popId,防止id重复
-        function creatPopId(){
-            var i = "pop_" + (new Date()).getTime()+parseInt(Math.random()*100000);//弹窗索引
-            if($("#" + i).length > 0){
-                return creatPopId();
-            }else{
-                return i;
-            }
-        }
-    };
-    
-    //按钮类型
-    window.wxc.xcConfirm.btnEnum = {
-        ok: parseInt("0001",2), //确定按钮
-        cancel: parseInt("0010",2), //取消按钮
-        okcancel: parseInt("0011",2) //确定&&取消
-    };
-    
-    //触发事件类型
-    window.wxc.xcConfirm.eventEnum = {
-        ok: 1,
-        cancel: 2,
-        close: 3
-    };
-    
-    //弹窗类型
-    window.wxc.xcConfirm.typeEnum = {
-        info: "info",
-        success: "success",
-        error:"error",
-        confirm: "confirm",
-        warning: "warning",
-        input: "input",
-        custom: "custom"
-    };
-
-})(jQuery);
-
+    }
 }
+
+function initBottomBtn(){
+    document.querySelector('.bottom_div').addEventListener('click', function(event) {
+        window.location.href = "http://livevip.renren.com/giftpack/showGet";
+    });
+}
+
