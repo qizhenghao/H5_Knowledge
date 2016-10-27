@@ -1,10 +1,4 @@
-/**
- * ITCAST WEB
- * Created by zhousg on 2016/4/27.
- */
 
-
-/*页面加载完成之后执行*/
 window.onload = function(){
     
     initActiveBtn();
@@ -25,7 +19,7 @@ function initActiveBtn() {
             var $dialog_box = $("<div>").addClass("dialog_box");//弹窗盒子
             var $dialog_box_img = $("<img>").addClass("dialog_box_img");
             var $cls_btn = $("<a>").addClass("cls_btn");//关闭按钮
-            $dialog_box_img.attr('src', 'http://a.xnimg.cn/wap/mobile/giftpack/image/giftpack_dialog_bg.jpg');
+            // $dialog_box_img.attr('src', 'http://a.xnimg.cn/wap/mobile/giftpack/image/giftpack_dialog_bg.jpg');
             $dialog.attr("id", dialogId).append($dialog_layer).append($dialog_box.append($dialog_box_img).append($cls_btn));
             $("body").append($dialog);
             $dialog.fadeIn(300);

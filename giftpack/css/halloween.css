@@ -1,0 +1,114 @@
+
+
+body{
+    font-family: 'NotoSans-Regular NotoSans-Bold';
+    background: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.top_pictrue_info{
+    position: absolute;
+    height: 16rem;
+    width: 100%;
+
+}
+
+.top_pictrue_img{
+    height: 16rem;
+    width: 100%;
+}
+
+ 
+.bottom_button_info{
+    position: fixed;
+    height: 1.34rem;
+    width: 100%;
+    bottom: 0rem;
+}
+
+.get_gift_info{
+   position: absolute;
+   max-width: 8.6rem;
+   margin-top:8.6rem;
+   margin-left: 1.6rem;
+   height: auto;
+}
+
+.get_gfit_info_text{
+   font-size: .35rem;
+   color: #85A1B2;
+}
+
+.gfit_get_count{
+   font-size: .35rem;
+   color: #fff;
+}
+ 
+ .gfit_send_count{
+   font-size: .35rem;
+   color: #fff;
+}
+ 
+ 
+
+.get_gfit_list_info {
+   position: absolute;
+   margin-top:9.4rem;
+   height: 2.76rem;
+   padding-left: .7rem;
+   width: 100%;
+}
+
+.get_gfit_list_info > ul >li{
+	  width: 15%;
+    float: left;
+    font-size: 0.3rem;
+    color: #fff;
+    margin-top: .4rem;
+    margin-left: .65rem;
+}
+
+ 
+.get_gift_list_item_img{
+	  width: .7rem;
+    height: .7rem;
+    vertical-align: middle;
+}
+
+
+.get_gift_list_item_gift_count{
+	  text-align: center;
+	  max-width: 1rem;
+    font-size: .3rem;
+    margin-left: .1rem;
+    color: #829199;	
+}
+
+.anchor_info {
+    width: 100%;
+    position: absolute;
+    height: auto;
+  }
+
+
+.anchor_head_img{
+	  width: 1.36rem;
+    height: 1.36rem;
+    border-radius: 50%;
+    margin-top:5.575rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+.anchor_name {
+    text-align: center;
+    float: left;
+    width: 100%;
+    font-size: .4rem;
+    color: #71d9f9;
+    margin-top:.3rem;
+}
+
+
