@@ -1,0 +1,150 @@
+
+
+body{
+    font-family: 'NotoSans-Regular NotoSans-Bold';
+    background: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.video_layout {
+	height: 11.39rem;
+	width: 7.747rem;
+	margin: 0 auto;
+	position: relative;
+}
+.video_content {
+	height: 10.84rem;
+	width: 7.747rem;
+	margin: 0 auto;
+}
+.chat_video {
+	width: 100%;
+	height: 100%;
+}
+.video_bottom_bg {
+	width: 100%;
+	height: 2.55rem;
+	position:absolute;
+	bottom:0px;
+	padding:0px;
+	margin:0px;
+	background: -ms-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,0.7));        /* IE 10 */
+
+background:-moz-linear-gradient(top,rgba(0,0,0,0),  rgba(0,0,0,1));/*火狐*/
+
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));      /* 谷歌 Safari 4-5, Chrome 1-9*/
+
+background: -webkit-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));   /*Safari5.1 Chrome 10+*/
+
+background: -o-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));  /*Opera 11.10+*/ 
+}
+
+.list_ul {
+	background: #333333;
+	height: 3.85rem;
+	width:100%;
+	display: inline;
+	white-space: nowrap;
+	overflow-x: scroll;
+	float: left;
+	overflow-y: hidden;
+}
+.list_ul li{
+	display:inline-block;
+	width: 2.9rem;
+	height: 100%;
+	position: relative;
+}
+.list_ul p {
+	width: 100%;
+	overflow: hidden;//超长隐藏 
+	white-space: nowrap;//不换行 
+	text-overflow: ellipsis;
+	text-align: center;
+}
+.item_img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #00ff00;
+	z-index: 100;
+}
+.item_content {
+	background:rgba(0,0,0,0.6);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+.item_state {
+	width: 0.66rem;
+	height: 0.66rem;
+	margin-top:0.7rem; 
+	margin-left: 1.12rem;
+}
+.item_name {
+	color: #fff;
+	font-size: 0.35rem;
+	margin: 0 auto;
+	margin-top: 0.30rem;
+}
+.item_date {
+	color: rgba(255,255,255,.5);
+	font-size: 0.30rem;
+	margin: 0 auto;
+	margin-top: 0.25rem;
+}
+.item_time {
+	color: rgba(255,255,255,.5);
+	font-size: 0.30rem;
+	margin: 0 auto;
+	margin-top: 0.20rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.3rem;
+    /*background: rgba(0,0,0,.75);*/
+    background: #ffffff;
+    font-size: .3rem;
+    line-height: 1.3rem;
+    z-index: 10000000;
+}
+
+.logo-show {
+    float: left;
+    text-indent: 1.3rem;
+    color: #505050;
+    /*background: url(../image/renren_logo.png) no-repeat .3rem .19rem;*/
+    background: url(http://a.test.cn/wap/mobile/flashchat/image/renren_logo.png) no-repeat .3rem .19rem;
+    background-size: .92rem .92rem;
+}
+
+.down-button {
+    float: right;
+    width: 2rem;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    margin: .175rem .25rem;
+    border-radius: .4rem;
+    font-size: .3rem;
+    color: #FFF;
+    background-color: #2CA1EA;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.open {
+    background-color: #2CA1EA;
+}
+
+
+
+
+
+
+
