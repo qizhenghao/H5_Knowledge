@@ -80,7 +80,13 @@ function initListDom(){
 					item.playType = 2;
 					item.contentDiv.style.backgroundColor = 'rgba(0,0,0,0)';
 					item.playImg.src = pauseIconUrl;
-					play();					break;
+					play();					
+                    break;
+                case 4://播放完成
+                    item.playType = 3;
+                    item.playImg.src = pauseIconUrl;
+                    play();
+                    break;
 			}
 			currPlayItem = item;
 			
@@ -138,6 +144,12 @@ function initListDom(){
 
             bindEvent(chatVideo, "click", empty);
             bindEvent(progressWrap, "mousedown", videoSeek);
+            bindEvent(chatVideo, 'ended', videoEnded);
+
+            function videoEnded() {
+                currPlayItem.playType = 4;
+                currPlayItem.playImg.src = playIconUrl;
+            }
 
             // 控制video的播放
             function play(){
