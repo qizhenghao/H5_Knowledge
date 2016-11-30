@@ -16,10 +16,14 @@
 <body>
     <div class="video_layout">
       <div class="video_content">
-          <video class="chat_video" src="http://download.m.renren.com/download/video/101690_575bd701a6594e9d84569ba52a70b12b_1441674669" controls="controls" data-owner="477301324" data-ugc="517708" webkit-playsinline="true" preload="none" poster="./image/test.png" x-webkit-airplay="allow" class="loaded"></video>
+          <video class="chat_video" src="http://download.m.renren.com/download/video/101690_575bd701a6594e9d84569ba52a70b12b_1441674669" data-owner="477301324" data-ugc="517708" webkit-playsinline="true" preload="none" poster="http://a.test.cn/wap/mobile/flashchat/image/test.png" x-webkit-airplay="allow" class="loaded"></video>
       </div>
 
       <div class="video_bottom_bg">   
+      </div>
+
+      <div id="progressWrap">  
+          <div id="playProgress"> </div>
       </div>
     </div>
 
@@ -28,10 +32,10 @@
             <li class="item_li">
                 <img class="item_img"></img>
                 <div class="item_content">
-                    <img class="item_state" src="./image/play.png">
-                    <p class="item_name">米米卡</p>
-                    <p class="item_date">10月15日</p>
-                    <p class="item_time">19:34</p>
+                    <img class="item_state" src="http://a.test.cn/wap/mobile/flashchat/image/play.png">
+                    <p class="item_name"></p>
+                    <p class="item_date"></p>
+                    <p class="item_time"></p>
                 </div>  
             </li>
         </ul>

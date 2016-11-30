@@ -9,7 +9,7 @@ body{
 
 .video_layout {
 	height: 11.39rem;
-	width: 7.747rem;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
 }
@@ -40,6 +40,21 @@ background: -webkit-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));   /*Saf
 background: -o-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));  /*Opera 11.10+*/ 
 }
 
+#progressWrap{
+    height: 0.15rem;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+    bottom:0px;
+	padding:0px;
+	margin:0px;
+}
+#playProgress{
+    background-color: #2CD4FF;
+    width: 0;
+    height: 100%;
+}
+
 .list_ul {
 	background: #333333;
 	height: 3.85rem;
@@ -49,6 +64,7 @@ background: -o-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));  /*Opera 11.
 	overflow-x: scroll;
 	float: left;
 	overflow-y: hidden;
+	margin-bottom: 1.3rem;
 }
 .list_ul li{
 	display:inline-block;
