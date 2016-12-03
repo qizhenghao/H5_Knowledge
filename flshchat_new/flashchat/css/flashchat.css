@@ -74,8 +74,8 @@ background: -o-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));  /*Opera 11.
 }
 .list_ul p {
 	width: 100%;
-	overflow: hidden;//超长隐藏 
-	white-space: nowrap;//不换行 
+	overflow: hidden;
+	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-align: center;
 }
@@ -102,19 +102,19 @@ background: -o-linear-gradient(top, rgba(0,0,0,0),  rgba(0,0,0,1));  /*Opera 11.
 	color: #fff;
 	font-size: 0.35rem;
 	margin: 0 auto;
-	margin-top: 0.30rem;
+	margin-top: 0.25rem;
 }
 .item_date {
 	color: rgba(255,255,255,.5);
 	font-size: 0.30rem;
 	margin: 0 auto;
-	margin-top: 0.25rem;
+	margin-top: 0.20rem;
 }
 .item_time {
 	color: rgba(255,255,255,.5);
 	font-size: 0.30rem;
 	margin: 0 auto;
-	margin-top: 0.20rem;
+	margin-top: 0.10rem;
 }
 
 footer {

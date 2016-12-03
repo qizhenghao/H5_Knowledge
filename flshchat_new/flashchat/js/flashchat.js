@@ -118,9 +118,9 @@ function initListDom(){
             idContainer:"flashchat_video", //div容器id
             hlsUrl: chatMsgs[i].playUrl, //rtmp播放地址
             posterImg:"", //封面图片地址
-            callbackInit:showVersion, //回调函数
-            callbackPlay:showVersion,//播放开始回调
-            callbackEnd:videoEnd, //播放结束函数
+            callbackInit:videoInitCallback, //回调函数
+            callbackPlay:videoPlayCallback,//播放开始回调
+            callbackEnd:videoEndCallback, //播放结束函数
             callbackTime:cc, //当前播放时长
             callbackReturnList:closeWin,//视频源出问题事件
             isLive:0, //是否直播模式
@@ -141,11 +141,14 @@ var playProgress = document.getElementById("playProgress");
     function cc(e){
         // playProgress.innerHTML=e;
     }
-    function showVersion() {
-        console.log("v1.16.11.21") ;
+    function videoInitCallback() {
+        console.log("videoInitCallback") ;
     }
-    function videoEnd() {
-        console.log("v1.16.11.21") ;
+    function videoPlayCallback() {
+        console.log("videoPlayCallback") ;
+    }
+    function videoEndCallback() {
+        console.log("videoEndCallback") ;
     }
     function closeWin(){
         console.log("播放源出问题!");
